@@ -10,6 +10,10 @@ RUN pip3 install \
     ipykernel \
     ipympl
 
+# Install optional packages for specific quantum frameworks (uncomment as needed)
+# RUN pip3 install azure-quantum[qiskit]
+# RUN pip3 install azure-quantum[cirq]
+
 # Expose port for Jupyter Notebook
 EXPOSE 8888
 
