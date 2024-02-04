@@ -1,4 +1,4 @@
-# QSharp Quantum Development Kit
+# QSharp
 
 This repository contains a Dockerfile for setting up a Python environment with QSharp and Azure Quantum.
 
