@@ -1,0 +1,30 @@
+# For creating the ReplicaSet
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: qsharp
+  labels:
+    app: qsharp
+spec:
+  replicas: 3 # Could be any number
+  selector:
+    matchLabels:
+      app: qsharp
+  template:
+    metadata:
+      labels:
+        app: qsharp
+    spec:
+      containers:
+      - name: qsharp
+        image: elijun831/qsharp:quantum
+        command: ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+        ports:
+        - containerPort: 8888
+        resources:
+          requests:
+            cpu: 100m
+            memory: 500Mi
+          limits:
+            cpu: 500m
+            memory: 2Gi
