@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qsharp-deployment
+  labels:
+    app: qsharp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: qsharp
+  template:
+    metadata:
+      labels:
+        app: qsharp
+    spec:
+      containers:
+      - name: qsharp
+        image: elijun831/qsharp:quantum
+        ports:
+        - containerPort: 8888
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "0.5"
+            memory: "512Mi"
